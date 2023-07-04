@@ -3,5 +3,64 @@ import { useState } from "react";
 import axios from "axios";
 
 export default function Signup() {
-  return "signup";
+  const [userId, setUserId] = useState("");
+  const [userPw, setUserPw] = useState("");
+  const [result, setResult] = useState("");
+
+  const handleRegister = async () => {
+    //회원가입 페이지 안올림
+    if (userId === "" || userPw === "") {
+      setResult("아이디와 비밀번호를 입력하세요");
+      return;
+    }
+
+    try {
+      const response = await axios.post("http://localhost:8000/api/signup", {
+        id: userId,
+        pw: userPw,
+      });
+
+      if (response.data.result === true) {
+        setResult("회원가입에 성공하였습니다.");
+      } else {
+        setResult("회원가입에 실패하였습니다.");
+      }
+    } catch (error) {
+      setResult("회원가입 요청을 처리하는 동안 오류가 발생하였습니다.");
+    }
+  };
+
+  return (
+    <div>
+      <h4>회원가입</h4>
+      <form>
+        <label htmlFor="id">아이디</label>
+        <input
+          type="text"
+          id="id"
+          value={userId}
+          onChange={(e) => setUserId(e.target.value)}
+        />
+        <br />
+        <label htmlFor="pw">비밀번호</label>
+        <input
+          type="password"
+          id="pw"
+          value={userPw}
+          onChange={(e) => setUserPw(e.target.value)}
+        />
+        <br />
+        <button type="button" onClick={handleRegister}>
+          회원가입
+        </button>
+      </form>
+      <br />
+      <div
+        className="result"
+        style={{ color: result.startsWith("회원가입에 성공") ? "blue" : "red" }}
+      >
+        {result}
+      </div>
+    </div>
+  );
 }
