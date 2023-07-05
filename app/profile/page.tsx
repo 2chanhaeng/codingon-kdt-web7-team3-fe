@@ -18,4 +18,11 @@ export default function profiles() {
   );
 }
 
+function ProfileCompoenent({
+}: {
+}) {
+  return (
+    <li>
+    </li>
+  );
 }
