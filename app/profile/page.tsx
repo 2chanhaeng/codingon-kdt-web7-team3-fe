@@ -1,6 +1,7 @@
 "use client";
 import axios from "axios";
 import { useEffect, useState } from "react";
+import Link from "next/link";
 
 type Profile = { id: number; name: string; infomation: string };
 
@@ -21,10 +22,14 @@ export default function profiles() {
 }
 
 function ProfileCompoenent({
+  profile: { id, name, infomation },
 }: {
+  profile: Profile;
 }) {
   return (
     <li>
+      <Link href={`/profiles/${id}`}>{name}</Link>
+      <p>{infomation}</p>
     </li>
   );
 }
