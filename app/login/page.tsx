@@ -8,7 +8,6 @@ export default function LoginPage() {
   const [success, setResult] = useState("");
 
   const handleLogin = async () => {
-    console.log("클릭");
     if (userId === "" || userPw === "") {
       setResult("아이디와 비밀번호를 입력하세요");
       localStorage.setItem("login", "true");
