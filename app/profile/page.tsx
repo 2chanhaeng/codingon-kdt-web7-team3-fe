@@ -15,6 +15,9 @@ export default function profiles() {
   return (
     <main>
       <ul>
+        {profiles.map((profile) => (
+          <ProfileCompoenent profile={profile} key={profile.id} />
+        ))}
         <li> 추가 생성 </li>
       </ul>
     </main>
