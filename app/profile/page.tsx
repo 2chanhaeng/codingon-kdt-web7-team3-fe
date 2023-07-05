@@ -11,6 +11,9 @@ export default function profiles() {
   });
   return (
     <main>
+      <ul>
+        <li> 추가 생성 </li>
+      </ul>
     </main>
   );
 }
