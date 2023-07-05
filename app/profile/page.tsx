@@ -1,8 +1,8 @@
 "use client";
 import axios from "axios";
 import { useEffect, useState } from "react";
-import Link from "next/link";
 import { ProfileType } from "@/types/profile";
+import ProfileComponent from "@/components/Profile";
 
 
 export default function profiles() {
@@ -16,23 +16,10 @@ export default function profiles() {
     <main>
       <ul>
         {profiles.map((profile) => (
-          <ProfileCompoenent profile={profile} key={profile.id} />
+          <ProfileComponent profile={profile} key={profile.id} />
         ))}
         <li> 추가 생성 </li>
       </ul>
     </main>
-  );
-}
-
-function ProfileCompoenent({
-  profile: { id, name, infomation },
-}: {
-  profile: Profile;
-}) {
-  return (
-    <li>
-      <Link href={`/profiles/${id}`}>{name}</Link>
-      <p>{infomation}</p>
-    </li>
   );
 }
