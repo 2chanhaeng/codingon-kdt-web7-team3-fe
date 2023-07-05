@@ -2,11 +2,11 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import { ProfileType } from "@/types/profile";
 
-type Profile = { id: number; name: string; infomation: string };
 
 export default function profiles() {
-  const [profiles, setProfiles] = useState([] as Profile[]);
+  const [profiles, setProfiles] = useState([] as ProfileType[]);
   useEffect(() => {
     axios.get("/api/profiles").then((response) => {
       setProfiles(response.data);
