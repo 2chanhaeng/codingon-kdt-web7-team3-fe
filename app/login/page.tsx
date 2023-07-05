@@ -30,16 +30,6 @@ export default function LoginPage() {
     }
   };
 
-  const handleLogout = async () => {
-    try {
-      await axios.get("/api/logout"); // 로그아웃 요청
-      window.location.href = "/login"; // 리디렉션
-    } catch (error) {
-      console.log("로그아웃 중 에러 발생:", error);
-      localStorage.clear();
-    }
-  };
-
   return (
     <main>
       <h4>로그인</h4>
@@ -62,9 +52,6 @@ export default function LoginPage() {
         <br />
         <button type="button" onClick={handleLogin}>
           로그인
-        </button>
-        <button type="button" onClick={handleLogout}>
-          로그아웃
         </button>
       </form>
       <br />
