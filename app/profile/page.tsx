@@ -4,8 +4,7 @@ import { useEffect, useState } from "react";
 import { ProfileType } from "@/types/profile";
 import ProfileComponent from "@/components/Profile";
 
-
-export default function profiles() {
+export default function ProfilesPage() {
   const [profiles, setProfiles] = useState([] as ProfileType[]);
   useEffect(() => {
     axios.get("/api/profiles").then((response) => {
