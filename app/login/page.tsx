@@ -55,12 +55,12 @@ export default function LoginPage() {
         </button>
       </form>
       <br />
-      <div
+      <article
         className="result"
         style={{ color: success.startsWith("로그인에 성공") ? "blue" : "red" }}
       >
         {success}
-      </div>
+      </article>
     </main>
   );
 }
