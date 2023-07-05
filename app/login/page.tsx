@@ -41,7 +41,7 @@ export default function LoginPage() {
   };
 
   return (
-    <div>
+    <main>
       <h4>로그인</h4>
       <form>
         <label htmlFor="id">아이디</label>
@@ -74,6 +74,6 @@ export default function LoginPage() {
       >
         {success}
       </div>
-    </div>
+    </main>
   );
 }
