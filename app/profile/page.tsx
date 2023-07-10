@@ -16,11 +16,12 @@ export default function ProfilesPage() {
     null
   );
 
+  //profile창이 실행되자마자 백엔드에서 값을 불러옴
   useEffect(() => {
     axios.get("/api/profiles").then((response) => {
       setProfiles(response.data);
     });
-  });
+  }, []);
   //비로그인시 인기순으로 프로필 정렬
   const reqProfiles = (e: Event) => {
     const cursor = profiles.at(-1)?.id ?? "";
