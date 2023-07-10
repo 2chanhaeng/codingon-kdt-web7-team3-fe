@@ -9,6 +9,7 @@ import styles from "../styles.module.scss";
 import FollowerModal from "@/components/ProfileId/FollowerModel";
 import FollowingModal from "@/components/ProfileId/FollowingModal";
 import TagModal from "@/components/ProfileId/TagModal";
+import ProfilePost from "@/components/ProfileId/ProfilePost";
 const exampleProfiles = [
   {
     id: "1",
