@@ -74,6 +74,11 @@ export default function ProfilesPage() {
         information,
       };
 
+      try {
+        const response = await axios.patch(
+          `/api/profiles/${selectedProfile.id}`,
+          updatedProfile
+        );
   };
 
   //비로그인시 인기순으로 프로필 정렬
