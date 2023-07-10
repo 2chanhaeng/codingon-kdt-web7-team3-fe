@@ -193,6 +193,11 @@ export default function ProfileId({
         <ProfilePost profilePosts={profilePosts} />
       </article>
 
+      {/* 태그 모달 */}
+      {isTagModalOpen && (
+        <TagModal profileTags={profileTags} toggleTagModal={toggleTagModal} />
+      )}
+
       )}
     </main>
   );
