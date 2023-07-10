@@ -125,6 +125,10 @@ export default function ProfilesPage() {
       {/* 모달 틀 */}
 
       {isOpen && (
+        <div className={styles.modal}>
+          <div className={styles["modal-content"]}>
+          </div>
+        </div>
       )}
     </main>
   );
