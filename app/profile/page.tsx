@@ -132,6 +132,15 @@ export default function ProfilesPage() {
             </span>
 
             <h2>{selectedProfile && "프로필 생성하기"}</h2>
+
+            <form
+              onSubmit={(e) => {
+                e.preventDefault();
+
+                createProfile();
+              }}
+            >
+            </form>
           </div>
         </div>
       )}
