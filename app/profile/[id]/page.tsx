@@ -31,6 +31,8 @@ export default function ProfileId({
   const [profiles, setProfiles] = useState([] as ProfileType[]);
   //Tag모달
   const [isTagModalOpen, setIsTagModalOpen] = useState(false);
+  //팔로우 하고있는 프로필을 보여주는 모달
+  const [isFollowingModalOpen, setIsFollowingModalOpen] = useState(false);
   useEffect(() => {
     setProfiles(exampleProfiles);
     getProfilePosts(id).then((posts) => {
