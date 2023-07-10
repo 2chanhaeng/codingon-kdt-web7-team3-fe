@@ -121,6 +121,11 @@ export default function ProfilesPage() {
           <button onClick={openModal}>프로필 생성</button>
         </li>
       </ul>
+
+      {/* 모달 틀 */}
+
+      {isOpen && (
+      )}
     </main>
   );
 }
