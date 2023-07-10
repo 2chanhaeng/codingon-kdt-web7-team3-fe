@@ -157,5 +157,12 @@ export default function ProfileId({
         setFollowingProfile(profileToFollow);
       }
     });
+    getFollowerProfile(id).then((profileToFollow) => {
+      if (profileToFollow) {
+        setFollowerProfile(profileToFollow);
+      }
+    });
+  }, [id]);
+
   );
 }
