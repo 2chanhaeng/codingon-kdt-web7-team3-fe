@@ -109,8 +109,13 @@ export default function ProfilesPage() {
     <main>
       <Navbar />
       <ul>
+        {/* 저장되어있던 프로필의 배열을 리스트로 뽑아주는 함수.*/}
         {profiles.map((profile) => (
-          <ProfileComponent profile={profile} key={profile.id} />
+          <ProfileComponent
+            profile={profile}
+            key={profile.id}
+            handleProfileEdit={handleProfileEdit}
+          />
         ))}
         <li> 추가 생성 </li>
       </ul>
