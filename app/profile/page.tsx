@@ -43,6 +43,18 @@ export default function ProfilesPage() {
         information,
       };
 
+      //'생성'버튼을 눌러 모달에서 값을 입력해 백엔드로 보내는 코드
+      //값이 정상적으로 저장되었다면 배열에 값들을 추가하고 li태그에 값을 출력해줌.
+      const response = await axios.post("/api/profiles", profile);
+      const { id } = response.data;
+      if (id) {
+        setProfiles((newProfiles) => newProfiles.concat([{ id, ...profile }]));
+        alert("프로필 생성 성공");
+        closeModal();
+      }
+    } catch (error) {
+      console.error("Error:", error);
+    }
   };
   //비로그인시 인기순으로 프로필 정렬
   const reqProfiles = (e: Event) => {
