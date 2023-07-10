@@ -143,5 +143,12 @@ export default function ProfileId({
     setIsTagModalOpen((prevState) => !prevState);
   };
 
+  //페이지 로드시 태그, 팔로잉, 팔로워 목록 가져오기
+  useEffect(() => {
+    getProfileTags(id).then((tags) => {
+      if (tags) {
+        setProfileTags(tags);
+      }
+    });
   );
 }
