@@ -79,6 +79,19 @@ export default function ProfilesPage() {
           `/api/profiles/${selectedProfile.id}`,
           updatedProfile
         );
+        if (response.data.success === true) {
+          // Update the profiles state with the updated profile
+          const updatedProfiles = profiles.map((profile) =>
+            profile.id === selectedProfile.id ? updatedProfile : profile
+          );
+          setProfiles(updatedProfiles);
+          alert("프로필 수정 성공");
+          closeModal();
+        }
+      } catch (error) {
+        console.error("Error:", error);
+      }
+    }
   };
 
   //비로그인시 인기순으로 프로필 정렬
