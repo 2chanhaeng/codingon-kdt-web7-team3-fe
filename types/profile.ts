@@ -3,3 +3,5 @@ export interface ProfileType {
   name: string;
   information: string;
 }
+export interface CreateProfileType {
+}
