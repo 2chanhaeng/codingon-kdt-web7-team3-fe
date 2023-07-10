@@ -67,6 +67,13 @@ export default function ProfilesPage() {
 
   //선택된 프로필이 있으면 프로필의 정보를 수정한 후 업데이트한다.
   const saveProfile = async () => {
+    if (selectedProfile) {
+      const updatedProfile: ProfileType = {
+        ...selectedProfile,
+        name,
+        information,
+      };
+
   };
 
   //비로그인시 인기순으로 프로필 정렬
