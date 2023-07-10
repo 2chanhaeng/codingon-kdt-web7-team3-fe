@@ -5,6 +5,7 @@ import { useCallback, useEffect, useState } from "react";
 import { ProfileType, ProfilesData } from "@/types/profile";
 import ProfileComponent from "@/components/Profile";
 import styles from "./styles.module.scss";
+import Navbar from "@/components/Navbar";
 
 export default function ProfilesPage() {
   const [profiles, setProfiles] = useState([] as ProfileType[]);
