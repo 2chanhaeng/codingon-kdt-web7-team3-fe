@@ -10,6 +10,7 @@ import FollowerModal from "@/components/ProfileId/FollowerModel";
 import FollowingModal from "@/components/ProfileId/FollowingModal";
 import TagModal from "@/components/ProfileId/TagModal";
 import ProfilePost from "@/components/ProfileId/ProfilePost";
+import ProfileInfo from "@/components/ProfileId/ProfileInfo";
 const exampleProfiles = [
   {
     id: "1",
