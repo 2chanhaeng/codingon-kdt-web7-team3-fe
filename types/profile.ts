@@ -8,4 +8,5 @@ export interface CreateProfileType {
   information: string;
 }
 export interface ProfilesData {
+  profiles: ProfileType[];
 }
