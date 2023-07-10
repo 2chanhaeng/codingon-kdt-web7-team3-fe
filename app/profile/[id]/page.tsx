@@ -131,5 +131,10 @@ export default function ProfileId({
     setIsFollowingModalOpen(false);
   };
 
+  //팔로워 모달 종료함수
+  const closeFollowergModal = () => {
+    setIsFollowerModalOpen(false);
+  };
+
   );
 }
