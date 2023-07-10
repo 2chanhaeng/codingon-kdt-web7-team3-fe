@@ -98,5 +98,19 @@ export default function ProfileId({
       console.error("Error:", error);
     }
   };
+
+  const ProfileEdit = async (id: string) => {
+    try {
+      // await axios.post(`/api/profiles/${id}`, {
+      //   profile,
+      //   baseURL: "http://localhost:8000",
+      // });
+
+      const profileToFollower: ProfileType[] = exampleProfiles;
+      return profileToFollower;
+    } catch (error) {
+      console.error("Error:", error);
+    }
+  };
   );
 }
