@@ -15,5 +15,13 @@ export default function ProfileId({
 }: {
   params: { id: string };
 }) {
+  useEffect(() => {
+    setProfiles(exampleProfiles);
+    getProfilePosts(id).then((posts) => {
+      if (posts) {
+        setProfilePosts(posts);
+      }
+    });
+  }, [id]);
   );
 }
