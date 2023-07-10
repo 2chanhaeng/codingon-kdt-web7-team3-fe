@@ -205,6 +205,13 @@ export default function ProfileId({
           closeFollowingModal={closeFollowingModal}
         />
       )}
+      {/* 팔로워 프로필 모달 */}
+
+      {isFollowerModalOpen && (
+        <FollowerModal
+          followerProfiles={followerProfiles}
+          closeFollowergModal={closeFollowergModal}
+        />
       )}
     </main>
   );
