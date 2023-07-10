@@ -140,6 +140,25 @@ export default function ProfilesPage() {
                 createProfile();
               }}
             >
+              <label htmlFor="name">이름</label>
+              <input
+                type="text"
+                id="name"
+                value={name}
+                onChange={(e) => setUserName(e.target.value)}
+              ></input>
+
+              <br />
+
+              <label htmlFor="information">내용</label>
+              <input
+                type="text"
+                id="information"
+                value={information}
+                onChange={(e) => setUserInfo(e.target.value)}
+              ></input>
+
+              <button type="submit">{selectedProfile && "생성"}</button>
             </form>
           </div>
         </div>
