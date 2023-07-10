@@ -53,5 +53,21 @@ export default function ProfileId({
       return null;
     }
   };
+  // 유저 로그인 id에 해당하는 태그들 가져오기
+  const getProfileTags = async (id: string, cursor?: string) => {
+    try {
+      // const response = await axios.get(`/api/profiles/${id}/tags`, {
+      //   params: { cursor },
+      //   baseURL: "http://localhost:8000",
+      // });
+
+      const tags: ProfileType[] = exampleProfiles;
+      return tags;
+    } catch (error) {
+      console.error("Error:", error);
+      return null;
+    }
+  };
+
   );
 }
