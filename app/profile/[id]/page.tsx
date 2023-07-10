@@ -172,6 +172,10 @@ export default function ProfileId({
 
   return (
     <main>
+      {/* 전체 프로필 목록 */}
+      <ul className={styles.ul}>
+        <AllProfileList profiles={profiles} />
+      </ul>
       )}
     </main>
   );
