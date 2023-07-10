@@ -6,10 +6,13 @@ interface ProfileComponentProps {
 }
 
 export default function ProfileComponent({
-  profile: { id, name, infomation },
-}: {
-  profile: ProfileType;
-}) {
+  profile: { id, name, information },
+  handleProfileEdit,
+}: ProfileComponentProps) {
+  const handleClick = () => {
+    handleProfileEdit({ id, name, information });
+  };
+
   return (
     <li>
       <Link href={`/profiles/${id}`}>{name}</Link>
