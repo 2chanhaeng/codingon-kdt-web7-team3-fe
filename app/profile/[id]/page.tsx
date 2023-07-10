@@ -69,5 +69,20 @@ export default function ProfileId({
     }
   };
 
+  //백엔드에서 팔로잉 목록 가져오기
+  const getFollowingProfile = async (id: string, cursor?: string) => {
+    try {
+      // await axios.post(`/api/profiles/${id}/follows`, {
+      //   profileId,
+      //   baseURL: "http://localhost:8000",
+      // });
+
+      const profileToFollow: ProfileType[] = exampleProfiles;
+      return profileToFollow;
+    } catch (error) {
+      console.error("Error:", error);
+    }
+  };
+
   );
 }
