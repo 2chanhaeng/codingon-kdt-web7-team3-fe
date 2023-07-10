@@ -6,5 +6,13 @@ export default function AllProfileList({
   profiles: ProfileType[];
 }) {
   {
+    return profiles.map((profile) => (
+      <li key={profile.id}>
+        <Link href={`/profile/${profile.id}`}>
+          <p>{profile.name}</p>
+          <p>{profile.information}</p>
+        </Link>
+      </li>
+    ));
   }
 }
