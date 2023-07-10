@@ -123,5 +123,10 @@ export default function ProfileId({
     false;
   };
 
+  // 팔로잉 모달 종료함수
+  const closeFollowingModal = () => {
+    setIsFollowingModalOpen(false);
+  };
+
   );
 }
