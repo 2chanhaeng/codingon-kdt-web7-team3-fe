@@ -107,6 +107,7 @@ export default function ProfilesPage() {
   };
   return (
     <main>
+      <Navbar />
       <ul>
         {profiles.map((profile) => (
           <ProfileComponent profile={profile} key={profile.id} />
