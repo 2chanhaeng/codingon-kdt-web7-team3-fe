@@ -188,6 +188,11 @@ export default function ProfileId({
         </section>
       </article>
 
+      {/* 프로필 게시물 */}
+      <article>
+        <ProfilePost profilePosts={profilePosts} />
+      </article>
+
       )}
     </main>
   );
