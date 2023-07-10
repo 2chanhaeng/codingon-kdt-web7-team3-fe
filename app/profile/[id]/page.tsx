@@ -37,6 +37,8 @@ export default function ProfileId({
   const [followingProfiles, setFollowingProfile] = useState(
     [] as ProfileType[]
   );
+  //유저를 팔로우하고 있는 프로ㅍㄹ을 불러오는 useState
+  const [followerProfiles, setFollowerProfile] = useState([] as ProfileType[]);
   //Tag모달
   const [isTagModalOpen, setIsTagModalOpen] = useState(false);
   //팔로우 하고있는 프로필을 보여주는 모달
