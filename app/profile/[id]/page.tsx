@@ -11,5 +11,9 @@ const exampleProfiles = [
 ];
 
 export default function ProfileId({
+  params: { id },
+}: {
+  params: { id: string };
+}) {
   );
 }
