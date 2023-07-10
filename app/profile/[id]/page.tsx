@@ -6,6 +6,9 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 import { ProfileType } from "@/types/profile";
 import styles from "../styles.module.scss";
+import FollowerModal from "@/components/ProfileId/FollowerModel";
+import FollowingModal from "@/components/ProfileId/FollowingModal";
+import TagModal from "@/components/ProfileId/TagModal";
 const exampleProfiles = [
   {
     id: "1",
