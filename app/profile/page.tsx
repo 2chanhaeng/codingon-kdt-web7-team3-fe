@@ -10,6 +10,8 @@ import Navbar from "@/components/Navbar";
 export default function ProfilesPage() {
   const [profiles, setProfiles] = useState([] as ProfileType[]);
   const [isOpen, setIsOpen] = useState(false);
+  const [name, setUserName] = useState("");
+  const [information, setUserInfo] = useState("");
   useEffect(() => {
     axios.get("/api/profiles").then((response) => {
       setProfiles(response.data);
