@@ -117,7 +117,9 @@ export default function ProfilesPage() {
             handleProfileEdit={handleProfileEdit}
           />
         ))}
-        <li> 추가 생성 </li>
+        <li>
+          <button onClick={openModal}>프로필 생성</button>
+        </li>
       </ul>
     </main>
   );
