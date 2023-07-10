@@ -1,0 +1,52 @@
+$modalBackgroundColor: rgba(0, 0, 0, 0.5);
+$modalContentBackgroundColor: #fff;
+$modalContentBorderColor: #888;
+
+.modal {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: $modalBackgroundColor;
+}
+
+.modal-content {
+  background-color: $modalContentBackgroundColor;
+  margin: 15% auto;
+  padding: 20px;
+  border: 1px solid $modalContentBorderColor;
+  width: 80%;
+  max-width: 400px;
+  border-radius: 5px;
+}
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.ul {
+  display: flex;
+}
+
+.article {
+  display: flex;
+  background-color: #888;
+}
+.div {
+  background-color: yellow;
+}
+
+.navigation {
+  display: flex;
+  flex-direction: column;
+  background-color: red;
+}
