@@ -136,5 +136,10 @@ export default function ProfileId({
     setIsFollowerModalOpen(false);
   };
 
+  //태그모달
+  const toggleTagModal = () => {
+    setIsTagModalOpen((prevState) => !prevState);
+  };
+
   );
 }
