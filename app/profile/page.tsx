@@ -22,6 +22,19 @@ export default function ProfilesPage() {
       setProfiles(response.data);
     });
   }, []);
+
+  //modal 함수 openModal,closeModal
+  const openModal = () => {
+    setIsOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsOpen(false);
+    setSelectedProfile(null);
+    setUserName("");
+    setUserInfo("");
+  };
+
   //비로그인시 인기순으로 프로필 정렬
   const reqProfiles = (e: Event) => {
     const cursor = profiles.at(-1)?.id ?? "";
