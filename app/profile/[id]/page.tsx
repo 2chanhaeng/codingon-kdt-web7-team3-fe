@@ -114,5 +114,12 @@ export default function ProfileId({
       console.error("Error:", error);
     }
   };
+
+  //태그 클릭시 openTagModal 실행
+  const openTagModal = () => {
+    setIsTagModalOpen(true);
+    false;
+  };
+
   );
 }
