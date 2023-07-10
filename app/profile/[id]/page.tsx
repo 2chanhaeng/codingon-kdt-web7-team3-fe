@@ -5,6 +5,7 @@ export default function ProfileId({ params }: { params: number }) {
 import axios from "axios";
 import { useState, useEffect } from "react";
 import { ProfileType } from "@/types/profile";
+import styles from "../styles.module.scss";
 const exampleProfiles = [
   {
     id: "1",
