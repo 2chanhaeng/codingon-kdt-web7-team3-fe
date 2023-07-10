@@ -12,6 +12,10 @@ export default function ProfilesPage() {
   const [isOpen, setIsOpen] = useState(false);
   const [name, setUserName] = useState("");
   const [information, setUserInfo] = useState("");
+  const [selectedProfile, setSelectedProfile] = useState<ProfileType | null>(
+    null
+  );
+
   useEffect(() => {
     axios.get("/api/profiles").then((response) => {
       setProfiles(response.data);
