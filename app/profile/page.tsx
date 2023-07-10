@@ -56,6 +56,15 @@ export default function ProfilesPage() {
       console.error("Error:", error);
     }
   };
+
+  //선택된 프로필을 인자로 받아 set*으로 상태를 업데이트 후 모달을 연다.
+  const handleProfileEdit = (profile: ProfileType) => {
+    setSelectedProfile(profile);
+    setUserName(profile.name);
+    setUserInfo(profile.information);
+    openModal();
+  };
+
   //비로그인시 인기순으로 프로필 정렬
   const reqProfiles = (e: Event) => {
     const cursor = profiles.at(-1)?.id ?? "";
