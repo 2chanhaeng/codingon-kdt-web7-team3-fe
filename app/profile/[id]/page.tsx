@@ -1,6 +1,10 @@
 export default function ProfileId({ params }: { params: number }) {
   console.log(params);
   return "profileid";
+"use client";
+import axios from "axios";
+import { useState, useEffect } from "react";
+import { ProfileType } from "@/types/profile";
 const exampleProfiles = [
   {
     id: "1",
