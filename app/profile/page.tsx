@@ -130,6 +130,8 @@ export default function ProfilesPage() {
             <span className={styles.close} onClick={closeModal}>
               &times;
             </span>
+
+            <h2>{selectedProfile && "프로필 생성하기"}</h2>
           </div>
         </div>
       )}
