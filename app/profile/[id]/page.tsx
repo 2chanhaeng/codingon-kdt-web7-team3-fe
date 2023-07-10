@@ -9,4 +9,7 @@ const exampleProfiles = [
   },
   { id: "2", name: "김안나", information: "운동을 좋아함" },
 ];
+
+export default function ProfileId({
+  );
 }
