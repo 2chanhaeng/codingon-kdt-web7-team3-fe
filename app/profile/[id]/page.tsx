@@ -29,6 +29,8 @@ export default function ProfileId({
 }) {
   //처음 로딩됐을때 프로필을 불러오는 useState
   const [profiles, setProfiles] = useState([] as ProfileType[]);
+  //Tag모달
+  const [isTagModalOpen, setIsTagModalOpen] = useState(false);
   useEffect(() => {
     setProfiles(exampleProfiles);
     getProfilePosts(id).then((posts) => {
