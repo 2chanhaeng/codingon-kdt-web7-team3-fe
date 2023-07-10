@@ -9,5 +9,7 @@ export default function TagModal({
   toggleTagModal: () => void;
 }) {
   return (
+    <article className={styles.modal}>
+    </article>
   );
 }
