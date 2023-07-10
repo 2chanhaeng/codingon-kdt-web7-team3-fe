@@ -10,6 +10,8 @@ export default function TagModal({
 }) {
   return (
     <article className={styles.modal}>
+      <section className={styles.modalContent}>
+      </section>
     </article>
   );
 }
