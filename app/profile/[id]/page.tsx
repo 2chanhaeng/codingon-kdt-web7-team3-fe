@@ -37,5 +37,21 @@ export default function ProfileId({
       }
     });
   }, [id]);
+
+  // 유저 로그인 id에 해당하는 게시글 가져오기
+  const getProfilePosts = async (id: string, cursor?: string) => {
+    try {
+      // const response = await axios.get(`/api/profiles/${id}/posts`, {
+      //   params: { cursor },
+      //   baseURL: "http://localhost:8000",
+      // });
+
+      const profilePosts: ProfileType[] = exampleProfiles;
+      return profilePosts;
+    } catch (error) {
+      console.error("Error:", error);
+      return null;
+    }
+  };
   );
 }
