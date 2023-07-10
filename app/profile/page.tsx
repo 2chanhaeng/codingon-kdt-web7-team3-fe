@@ -127,6 +127,9 @@ export default function ProfilesPage() {
       {isOpen && (
         <div className={styles.modal}>
           <div className={styles["modal-content"]}>
+            <span className={styles.close} onClick={closeModal}>
+              &times;
+            </span>
           </div>
         </div>
       )}
