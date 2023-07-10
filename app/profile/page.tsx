@@ -37,6 +37,12 @@ export default function ProfilesPage() {
 
   //'생성' 버튼을 누르면 값을 보내주는 함수 createProfile
   const createProfile = async () => {
+    try {
+      const profile = {
+        name,
+        information,
+      };
+
   };
   //비로그인시 인기순으로 프로필 정렬
   const reqProfiles = (e: Event) => {
