@@ -198,6 +198,13 @@ export default function ProfileId({
         <TagModal profileTags={profileTags} toggleTagModal={toggleTagModal} />
       )}
 
+      {/* 팔로잉 프로필 모달 */}
+      {isFollowingModalOpen && (
+        <FollowingModal
+          followingProfiles={followingProfiles}
+          closeFollowingModal={closeFollowingModal}
+        />
+      )}
       )}
     </main>
   );
