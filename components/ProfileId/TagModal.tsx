@@ -11,6 +11,13 @@ export default function TagModal({
   return (
     <article className={styles.modal}>
       <section className={styles.modalContent}>
+        <h2>태그</h2>
+        <ul>
+          {profileTags.map((tag) => (
+            <li key={tag.id}>{tag.name}</li>
+          ))}
+        </ul>
+        <button onClick={toggleTagModal}>닫기</button>
       </section>
     </article>
   );
