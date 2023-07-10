@@ -1,8 +1,10 @@
 "use client";
 import axios from "axios";
-import { useEffect, useState } from "react";
-import { ProfileType } from "@/types/profile";
+import Link from "next/link";
+import { useCallback, useEffect, useState } from "react";
+import { ProfileType, ProfilesData } from "@/types/profile";
 import ProfileComponent from "@/components/Profile";
+import styles from "./styles.module.scss";
 
 export default function ProfilesPage() {
   const [profiles, setProfiles] = useState([] as ProfileType[]);
