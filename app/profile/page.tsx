@@ -35,6 +35,9 @@ export default function ProfilesPage() {
     setUserInfo("");
   };
 
+  //'생성' 버튼을 누르면 값을 보내주는 함수 createProfile
+  const createProfile = async () => {
+  };
   //비로그인시 인기순으로 프로필 정렬
   const reqProfiles = (e: Event) => {
     const cursor = profiles.at(-1)?.id ?? "";
