@@ -7,3 +7,5 @@ export interface CreateProfileType {
   name: string;
   information: string;
 }
+export interface ProfilesData {
+}
