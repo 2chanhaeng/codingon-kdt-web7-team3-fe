@@ -14,9 +14,11 @@ export default function ProfileComponent({
   };
 
   return (
-    <li>
-      <Link href={`/profiles/${id}`}>{name}</Link>
-      <p>{infomation}</p>
-    </li>
+    <Link href={`/profile/${id}`}>
+      <li>
+        <p>{name}</p>
+        <p>{information}</p>
+      </li>
+    </Link>
   );
 }
