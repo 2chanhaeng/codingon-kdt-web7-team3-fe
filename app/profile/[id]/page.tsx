@@ -104,8 +104,16 @@ export default function ProfileId({
       </dialog>
 
       {/* 팔로잉 프로필 모달 */}
+      <dialog
+        className={styles.dialog}
+        open={isFollowingModalOpen}
+        onClose={() => setIsFollowingModalOpen(false)}
+      >
         <FollowingModal
+          profile={profile}
+          setIsFollowingModalOpen={setIsFollowingModalOpen}
         />
+      </dialog>
 
         <FollowerModal
         />
