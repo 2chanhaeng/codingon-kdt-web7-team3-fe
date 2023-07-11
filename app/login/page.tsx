@@ -28,14 +28,10 @@ interface LoginForm {
         <button type="button" onClick={handleLogin}>
           로그인
         </button>
+        <dialog onClick={(e) => e.currentTarget.close()} id="failed">
+          <p>로그인 실패</p>
+        </dialog>
       </form>
-      <br />
-      <article
-        className="result"
-        style={{ color: success.startsWith("로그인에 성공") ? "blue" : "red" }}
-      >
-        {success}
-      </article>
     </main>
   );
 }
