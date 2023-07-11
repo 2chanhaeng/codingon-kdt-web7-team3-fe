@@ -2,8 +2,8 @@ import { Dispatch, SetStateAction } from "react";
 import { ProfilePageData } from "@/types/profile";
 import styles from "app/profile/styles.module.scss";
 export default function FollowingModal({
-  followingProfiles,
-  closeFollowingModal,
+  profile,
+  setIsFollowingModalOpen,
 }: {
   followingProfiles: ProfileType[];
   closeFollowingModal: () => void;
