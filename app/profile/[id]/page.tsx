@@ -115,8 +115,17 @@ export default function ProfileId({
         />
       </dialog>
 
+      {/* 팔로워 프로필 모달 */}
+      <dialog
+        className={styles.dialog}
+        open={isFollowerModalOpen}
+        onClose={() => setIsFollowerModalOpen(false)}
+      >
         <FollowerModal
+          profile={profile}
+          setIsFollowerModalOpen={setIsFollowerModalOpen}
         />
+      </dialog>
     </main>
   );
 }
