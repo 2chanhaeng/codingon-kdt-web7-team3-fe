@@ -76,34 +76,12 @@ export default function ProfileId({
     }
   };
 
-  //태그 클릭시 openTagModal 실행
-  const openTagModal = () => {
-    setIsTagModalOpen(true);
-    false;
-  };
-
-  // 팔로잉 모달 종료함수
-  const closeFollowingModal = () => {
-    setIsFollowingModalOpen(false);
-  };
-
-  //팔로워 모달 종료함수
-  const closeFollowergModal = () => {
-    setIsFollowerModalOpen(false);
-  };
-
-  //태그모달
-  const toggleTagModal = () => {
-    setIsTagModalOpen((prevState) => !prevState);
-  };
-
   return (
     <main>
       {/* 프로필 정보 */}
       <article>
         <section className={styles.article}>
           <ProfileInfo profile={profile} />
-          <button onClick={openTagModal}>태그</button>
           <button onClick={() => setIsFollowingModalOpen(true)}>팔로잉</button>
           <button onClick={() => setIsFollowerModalOpen(true)}>팔로워</button>
           <button>프로필 수정</button>
@@ -116,25 +94,13 @@ export default function ProfileId({
       </article>
 
       {/* 태그 모달 */}
-      {isTagModalOpen && ( //isTagModalOpen tailwind로 바꾸기
-        <TagModal profileTags={profile.tags} toggleTagModal={toggleTagModal} />
-      )}
 
       {/* 팔로잉 프로필 모달 */}
-      {isFollowingModalOpen && (
         <FollowingModal
-          followingProfiles={profile.follows}
-          closeFollowingModal={closeFollowingModal}
         />
-      )}
-      {/* 팔로워 프로필 모달 */}
 
-      {isFollowerModalOpen && (
         <FollowerModal
-          followerProfiles={profile.followers}
-          closeFollowergModal={closeFollowergModal}
         />
-      )}
     </main>
   );
 }
