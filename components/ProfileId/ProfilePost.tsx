@@ -9,8 +9,7 @@ export default function ProfilePost({
     <section>
       {profilePosts.map((post) => (
         <div key={post.id}>
-          <h3>{post.name}</h3>
-          <p>{post.information}</p>
+          <p>{post.content}</p>
         </div>
       ))}
     </section>
