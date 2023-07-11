@@ -13,8 +13,8 @@ export default function FollowingModal({
       <section className={styles.modalContent}>
         <h2>Following</h2>
         <ul>
-          {followingProfiles.map((profile) => (
-            <li key={profile.id}>{profile.name}</li>
+          {profile.follows.map(({ id, name }) => (
+            <li key={id}>{name}</li>
           ))}
         </ul>
         <button onClick={closeFollowingModal}>닫기</button>
