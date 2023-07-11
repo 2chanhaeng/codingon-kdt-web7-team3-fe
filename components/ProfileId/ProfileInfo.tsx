@@ -9,7 +9,6 @@ export default function ProfileInfo({
 }) {
   return (
     <div className={styles.div}>
-      <p> {id}</p>
       <p> {profiles.find((profile) => profile?.id === id)?.name}</p>
       <p>{profiles.find((profile) => profile?.id === id)?.information}</p>
     </div>
