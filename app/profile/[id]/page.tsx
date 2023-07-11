@@ -46,11 +46,15 @@ export default function ProfileId({
   const [isFollowerModalOpen, setIsFollowerModalOpen] = useState(false);
 
   useEffect(() => {
-    setProfiles(exampleProfiles);
-    getProfilePosts(id).then((posts) => {
-      if (posts) {
-        setProfilePosts(posts);
-      }
+    // page init
+    const profile = exampleProfiles.find((prof) => prof.id === id);
+    if (!profile) {
+      // 404 redirect
+      return;
+    }
+    getProfilePageData(id).then((data) => {
+      const profileData = { ...profile, ...data };
+      setProfile(profileData);
     });
   }, [id]);
 
