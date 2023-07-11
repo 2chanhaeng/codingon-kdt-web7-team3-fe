@@ -93,32 +93,8 @@ export default function ProfileId({
     setIsTagModalOpen((prevState) => !prevState);
   };
 
-  //페이지 로드시 태그, 팔로잉, 팔로워 목록 가져오기
-  useEffect(() => {
-    getProfileTags(id).then((tags) => {
-      if (tags) {
-        setProfileTags(tags);
-      }
-    });
-    getFollowingProfile(id).then((profileToFollow) => {
-      if (profileToFollow) {
-        setFollowingProfile(profileToFollow);
-      }
-    });
-    getFollowerProfile(id).then((profileToFollow) => {
-      if (profileToFollow) {
-        setFollowerProfile(profileToFollow);
-      }
-    });
-  }, [id]);
-
   return (
     <main>
-      {/* 전체 프로필 목록 */}
-      <ul className={styles.ul}>
-        <AllProfileList profiles={profiles} />
-      </ul>
-
       {/* 프로필 정보 */}
       <article>
         <section className={styles.article}>
