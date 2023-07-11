@@ -24,7 +24,7 @@ const exampleProfiles = [
 ] as ProfilePageData[];
 //ProfileType을 상속받는 ProfilePageData
 //ProfileType[]은 상속받은 부모 ProfileType로부터 사용가능하고, Tag[]는 ProfilePageData에서 사용
-
+type asd = React.Dispatch<React.SetStateAction<boolean>>;
 export default function ProfileId({
   params: { id },
 }: {
