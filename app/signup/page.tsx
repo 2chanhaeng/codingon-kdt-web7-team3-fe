@@ -1,6 +1,6 @@
 "use client";
-import { useState } from "react";
 import axios from "axios";
+import React, { useState } from "react";
 
 export default function Signup() {
   const [userId, setUserId] = useState("");
@@ -63,4 +63,12 @@ export default function Signup() {
       </div>
     </div>
   );
+}
+
+/** signupForm의 키값을 name으로 받아서 value를 넣어줌 */
+function onChange(setForm: React.Dispatch<React.SetStateAction<SignupForm>>) {
+  return (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target;
+    setForm((form) => ({ ...form, [name]: value }));
+  };
 }
