@@ -1,6 +1,6 @@
 "use client";
-import { useState } from "react";
 import axios from "axios";
+import React, { useCallback, useState } from "react";
 
 export default function LoginPage() {
   const [userId, setUserId] = useState("");
@@ -67,4 +67,11 @@ interface LoginForm {
       </article>
     </main>
   );
+}
+/** 로그인 폼 키값을 name으로 받아서 value를 넣어줌 */
+function onChange(setForm: React.Dispatch<React.SetStateAction<LoginForm>>) {
+  return (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target;
+    setForm((form) => ({ ...form, [name]: value }));
+  };
 }
