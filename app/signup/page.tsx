@@ -2,6 +2,11 @@
 import axios from "axios";
 import React, { useState } from "react";
 
+interface SignupForm {
+  username: string;
+  password: string;
+}
+
 export default function Signup() {
   const [userId, setUserId] = useState("");
   const [userPw, setUserPw] = useState("");
