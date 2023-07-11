@@ -3,8 +3,8 @@ import { ProfilePageData } from "@/types/profile";
 import styles from "app/profile/styles.module.scss";
 
 export default function FollowerModal({
-  followerProfiles,
-  closeFollowergModal,
+  profile,
+  setIsFollowerModalOpen,
 }: {
   followerProfiles: ProfileType[];
   closeFollowergModal: () => void;
