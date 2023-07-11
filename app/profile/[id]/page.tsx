@@ -31,9 +31,19 @@ export default function ProfileId({
   params: { id: string };
 }) {
   //처음 로딩됐을때 프로필을 불러오는 useState
-  const [profile, setProfile] = useState({} as ProfilePageData);
+  const initProfile = {
+    id: "",
+    name: "",
+    information: "",
+    tags: [],
+    posts: [],
+    followers: [],
+    follows: [],
+  };
+  const [profile, setProfile] = useState<ProfilePageData>(initProfile);
   //Tag모달
   const [isTagModalOpen, setIsTagModalOpen] = useState(false);
+
   //팔로우 하고있는 프로필을 보여주는 모달
   const [isFollowingModalOpen, setIsFollowingModalOpen] = useState(false);
   //유저를 팔로우 하고있는 프로필을 보여주는 모달
