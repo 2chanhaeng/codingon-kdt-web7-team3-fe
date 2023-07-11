@@ -6,8 +6,7 @@ export interface ProfileType {
 
 export interface PostType {
   id: string;
-  name: string;
-  information: string;
+  content: string;
 }
 
 export interface CreateProfileType {
