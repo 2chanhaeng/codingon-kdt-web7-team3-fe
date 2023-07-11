@@ -17,8 +17,8 @@ export default function FollowingModal({
             <li key={id}>{name}</li>
           ))}
         </ul>
-        <button onClick={closeFollowingModal}>닫기</button>
-      </div>
-    </div>
+        <button onClick={() => setIsFollowingModalOpen(false)}>닫기</button>
+      </section>
+    </article>
   );
 }
