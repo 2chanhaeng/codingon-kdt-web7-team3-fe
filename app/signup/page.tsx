@@ -1,4 +1,5 @@
 "use client";
+import { useRouter } from "next/navigation";
 import React, { useState } from "react";
 
 interface SignupForm {
@@ -7,6 +8,7 @@ interface SignupForm {
 }
 
 export default function Signup() {
+  const { replace } = useRouter();
   const [form, setForm] = useState({} as SignupForm);
 
   const handleRegister = async (event: React.FormEvent<HTMLFormElement>) => {
@@ -23,6 +25,7 @@ export default function Signup() {
       const { success } = data;
       if (success) {
         //회원가입 성공
+        replace("/login");
       } else {
         // 회원가입 실패
       }
