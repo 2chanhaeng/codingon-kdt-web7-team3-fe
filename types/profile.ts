@@ -17,3 +17,8 @@ export interface CreateProfileType {
 export interface ProfilesData {
   profiles: ProfileType[];
 }
+
+export interface Tag {
+  id: string;
+  tagname: string;
+}
