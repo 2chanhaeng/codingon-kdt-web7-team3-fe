@@ -108,7 +108,7 @@ export default function ProfileId({
 
       {/* 프로필 게시물 */}
       <article>
-        <ProfilePost profilePosts={profilePosts} />
+        <ProfilePost profilePosts={profile.posts} />
       </article>
 
       {/* 태그 모달 */}
