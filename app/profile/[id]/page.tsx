@@ -37,17 +37,7 @@ export default function ProfileId({
   params: { id: string };
 }) {
   //처음 로딩됐을때 프로필을 불러오는 useState
-  const [profiles, setProfiles] = useState([] as PostType[]);
-  // 프로필을 불러오는 useState
-  const [profilePosts, setProfilePosts] = useState([] as PostType[]);
-  //태그를 불러오는 useState
-  const [profileTags, setProfileTags] = useState([] as ProfileType[]);
-  //팔로우 하고있는 프로필을 불러오는 useState
-  const [followingProfiles, setFollowingProfile] = useState(
-    [] as ProfileType[]
-  );
-  //유저를 팔로우하고 있는 프로ㅍㄹ을 불러오는 useState
-  const [followerProfiles, setFollowerProfile] = useState([] as ProfileType[]);
+  const [profile, setProfile] = useState({} as ProfilePageData);
   //Tag모달
   const [isTagModalOpen, setIsTagModalOpen] = useState(false);
   //팔로우 하고있는 프로필을 보여주는 모달
