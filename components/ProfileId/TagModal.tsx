@@ -6,8 +6,8 @@ export default function TagModal({
   profile,
   setIsTagModalOpen,
 }: {
-  profileTags: Tag[];
-  toggleTagModal: () => void;
+  profile: ProfilePageData;
+  setIsTagModalOpen: Dispatch<SetStateAction<boolean>>;
 }) {
   return (
     <article className={styles.modal}>
