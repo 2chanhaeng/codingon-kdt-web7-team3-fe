@@ -1,13 +1,14 @@
 "use client";
-import axios from "axios";
+import { useRouter } from "next/navigation";
 import React, { useCallback, useState } from "react";
 
-export default function LoginPage() {
 interface LoginForm {
   username: string;
   password: string;
 }
 
+export default function LoginPage() {
+  const { replace } = useRouter();
   const [form, setForm] = useState({} as LoginForm);
   const handleChange = onChange(setForm);
 
