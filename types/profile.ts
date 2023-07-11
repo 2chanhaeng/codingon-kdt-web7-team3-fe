@@ -22,3 +22,10 @@ export interface Tag {
   id: string;
   tagname: string;
 }
+
+export interface ProfilePageData extends ProfileType {
+  posts: PostType[];
+  tags: Tag[];
+  follows: ProfileType[];
+  followers: ProfileType[];
+}
