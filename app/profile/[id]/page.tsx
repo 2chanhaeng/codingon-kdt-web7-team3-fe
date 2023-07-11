@@ -22,6 +22,14 @@ const exampleProfiles = [
     information: "운동을 좋아함",
   },
 ] as ProfilePageData[];
+//ProfileType을 상속받는 ProfilePageData
+//ProfileType[]은 상속받은 부모 ProfileType로부터 사용가능하고, Tag[]는 ProfilePageData에서 사용
+interface ProfilePageData extends ProfileType {
+  posts: PostType[];
+  tags: Tag[];
+  follows: ProfileType[];
+  followers: ProfileType[];
+}
 
 export default function ProfileId({
   params: { id },
