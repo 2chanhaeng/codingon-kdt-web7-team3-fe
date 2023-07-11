@@ -5,8 +5,8 @@ export default function FollowingModal({
   profile,
   setIsFollowingModalOpen,
 }: {
-  followingProfiles: ProfileType[];
-  closeFollowingModal: () => void;
+  profile: ProfilePageData;
+  setIsFollowingModalOpen: Dispatch<SetStateAction<boolean>>;
 }) {
   return (
     <div className={styles.modal}>
