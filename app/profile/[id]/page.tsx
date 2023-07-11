@@ -1,7 +1,7 @@
 "use client";
 import axios from "axios";
 import { useState, useEffect } from "react";
-import { ProfileType } from "@/types/profile";
+import { PostType, ProfileType } from "@/types/profile";
 import styles from "../styles.module.scss";
 import FollowerModal from "@/components/ProfileId/FollowerModel";
 import FollowingModal from "@/components/ProfileId/FollowingModal";
@@ -25,9 +25,9 @@ export default function ProfileId({
   params: { id: string };
 }) {
   //처음 로딩됐을때 프로필을 불러오는 useState
-  const [profiles, setProfiles] = useState([] as ProfileType[]);
+  const [profiles, setProfiles] = useState([] as PostType[]);
   // 프로필을 불러오는 useState
-  const [profilePosts, setProfilePosts] = useState([] as ProfileType[]);
+  const [profilePosts, setProfilePosts] = useState([] as PostType[]);
   //태그를 불러오는 useState
   const [profileTags, setProfileTags] = useState([] as ProfileType[]);
   //팔로우 하고있는 프로필을 불러오는 useState
