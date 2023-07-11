@@ -54,67 +54,6 @@ export default function ProfileId({
     });
   }, [id]);
 
-  // 유저 로그인 id에 해당하는 게시글 가져오기
-  const getProfilePosts = async (id: string, cursor?: string) => {
-    try {
-      // const response = await axios.get(`/api/profiles/${id}/posts`, {
-      //   params: { cursor },
-      //   baseURL: "http://localhost:8000",
-      // });
-
-      const profilePosts: ProfileType[] = exampleProfiles;
-      return profilePosts;
-    } catch (error) {
-      console.error("Error:", error);
-      return null;
-    }
-  };
-  // 유저 로그인 id에 해당하는 태그들 가져오기
-  const getProfileTags = async (id: string, cursor?: string) => {
-    try {
-      // const response = await axios.get(`/api/profiles/${id}/tags`, {
-      //   params: { cursor },
-      //   baseURL: "http://localhost:8000",
-      // });
-
-      const tags: ProfileType[] = exampleProfiles;
-      return tags;
-    } catch (error) {
-      console.error("Error:", error);
-      return null;
-    }
-  };
-
-  //백엔드에서 팔로잉 목록 가져오기
-  const getFollowingProfile = async (id: string, cursor?: string) => {
-    try {
-      // await axios.post(`/api/profiles/${id}/follows`, {
-      //   profileId,
-      //   baseURL: "http://localhost:8000",
-      // });
-
-      const profileToFollow: ProfileType[] = exampleProfiles;
-      return profileToFollow;
-    } catch (error) {
-      console.error("Error:", error);
-    }
-  };
-
-  //백엔드에서 팔로워 목록 가져오기
-  const getFollowerProfile = async (id: string, cursor?: string) => {
-    try {
-      // await axios.post(`/api/profiles/${id}/follows`, {
-      //   profileId,
-      //   baseURL: "http://localhost:8000",
-      // });
-
-      const profileToFollower: ProfileType[] = exampleProfiles;
-      return profileToFollower;
-    } catch (error) {
-      console.error("Error:", error);
-    }
-  };
-
   const ProfileEdit = async (id: string) => {
     try {
       // await axios.post(`/api/profiles/${id}`, {
@@ -215,3 +154,79 @@ export default function ProfileId({
     </main>
   );
 }
+
+// 유저 로그인 id에 해당하는 게시글 가져오기
+const getProfilePosts = async (id: string, cursor?: string) => {
+  try {
+    // const response = await axios.get(`/api/profiles/${id}/posts`, {
+    //   params: { cursor },
+    //   baseURL: "http://localhost:8000",
+    // });
+
+    const profilePosts: PostType[] = [{ id: "asd", content: "asfqef" }];
+    return profilePosts;
+  } catch (error) {
+    console.error("Error:", error);
+    return null;
+  }
+};
+
+async function getProfilePageData(id: string) {
+  return {
+    tags: (await getProfileTags(id)) as Tag[],
+    posts: (await getProfilePosts(id)) as PostType[],
+    follows: (await getFollowingProfile(id)) as ProfileType[],
+    followers: (await getFollowerProfile(id)) as ProfileType[],
+  };
+}
+
+// 유저 로그인 id에 해당하는 태그들 가져오기
+const getProfileTags = async (id: string, cursor?: string) => {
+  try {
+    // const response = await axios.get(`/api/profiles/${id}/tags`, {
+    //   params: { cursor },
+    //   baseURL: "http://localhost:8000",
+    // });
+
+    const tags = [
+      {
+        id: "asfaz",
+        tagname: "wefds",
+      },
+    ] as Tag[];
+    return tags;
+  } catch (error) {
+    console.error("Error:", error);
+    return null;
+  }
+};
+
+//백엔드에서 팔로잉 목록 가져오기
+const getFollowingProfile = async (id: string, cursor?: string) => {
+  try {
+    // await axios.post(`/api/profiles/${id}/follows`, {
+    //   profileId,
+    //   baseURL: "http://localhost:8000",
+    // });
+
+    const profileToFollow: ProfileType[] = exampleProfiles;
+    return profileToFollow;
+  } catch (error) {
+    console.error("Error:", error);
+  }
+};
+
+//백엔드에서 팔로워 목록 가져오기
+const getFollowerProfile = async (id: string, cursor?: string) => {
+  try {
+    // await axios.post(`/api/profiles/${id}/follows`, {
+    //   profileId,
+    //   baseURL: "http://localhost:8000",
+    // });
+
+    const profileToFollower: ProfileType[] = exampleProfiles;
+    return profileToFollower;
+  } catch (error) {
+    console.error("Error:", error);
+  }
+};
