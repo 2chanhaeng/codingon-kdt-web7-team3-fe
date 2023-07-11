@@ -119,7 +119,7 @@ export default function ProfileId({
       {/* 팔로잉 프로필 모달 */}
       {isFollowingModalOpen && (
         <FollowingModal
-          followingProfiles={followingProfiles}
+          followingProfiles={profile.follows}
           closeFollowingModal={closeFollowingModal}
         />
       )}
