@@ -18,7 +18,7 @@ export default function TagModal({
             <li key={id}>{tagname}</li>
           ))}
         </ul>
-        <button onClick={toggleTagModal}>닫기</button>
+        <button onClick={() => setIsTagModalOpen(false)}>닫기</button>
       </section>
     </article>
   );
