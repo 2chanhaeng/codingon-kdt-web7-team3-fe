@@ -3,8 +3,8 @@ import { ProfilePageData } from "@/types/profile";
 import styles from "app/profile/styles.module.scss";
 
 export default function TagModal({
-  profileTags,
-  toggleTagModal,
+  profile,
+  setIsTagModalOpen,
 }: {
   profileTags: Tag[];
   toggleTagModal: () => void;
