@@ -127,7 +127,7 @@ export default function ProfileId({
 
       {isFollowerModalOpen && (
         <FollowerModal
-          followerProfiles={followerProfiles}
+          followerProfiles={profile.followers}
           closeFollowergModal={closeFollowergModal}
         />
       )}
