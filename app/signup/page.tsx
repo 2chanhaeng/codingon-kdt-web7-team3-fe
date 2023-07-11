@@ -10,32 +10,7 @@ interface SignupForm {
 export default function Signup() {
   const { replace } = useRouter();
   const [form, setForm] = useState({} as SignupForm);
-
-  const handleRegister = async (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-    //회원가입 페이지 안올림
-    try {
-      const res = await fetch("/api/signup", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(form),
-      });
-      const data = await res.json();
-      console.log(data);
-      const { success } = data;
-      if (success) {
-        //회원가입 성공
-        replace("/login");
-      } else {
-        // 회원가입 실패
-        event.currentTarget.querySelector("dialog")?.show();
-      }
-    } catch (error) {
-      // 회원가입 실패
-      (event.target as HTMLFormElement).querySelector("dialog")?.show();
-    }
-  };
-
+  const handleRegister = onFormSubmit(form, replace);
   const handleChange = onChange(setForm);
 
   return (
@@ -59,6 +34,23 @@ export default function Signup() {
       </form>
     </div>
   );
+}
+
+/** 회원가입 폼을 제출하는 함수 */
+function onFormSubmit(
+  form: SignupForm,
+  replace: (path: string) => void
+): React.FormEventHandler<HTMLFormElement> {
+  return async (e) => {
+    e.preventDefault();
+    const res = await fetch("/api/signup", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(form),
+    });
+    if (res.ok) replace("/login");
+    else document.getElementById("failed")?.show();
+  };
 }
 
 /** signupForm의 키값을 name으로 받아서 value를 넣어줌 */
