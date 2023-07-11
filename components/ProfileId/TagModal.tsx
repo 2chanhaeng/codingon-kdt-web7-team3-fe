@@ -1,4 +1,5 @@
-import { Tag } from "@/types/profile";
+import { Dispatch, SetStateAction } from "react";
+import { ProfilePageData } from "@/types/profile";
 import styles from "app/profile/styles.module.scss";
 
 export default function TagModal({
