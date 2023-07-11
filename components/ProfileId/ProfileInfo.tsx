@@ -7,8 +7,8 @@ export default function ProfileInfo({
 }) {
   return (
     <div className={styles.div}>
-      <p> {profiles.find((profile) => profile?.id === id)?.name}</p>
-      <p>{profiles.find((profile) => profile?.id === id)?.information}</p>
+      <p> {name}</p>
+      <p>{information}</p>
     </div>
   );
 }
