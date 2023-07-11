@@ -113,7 +113,7 @@ export default function ProfileId({
 
       {/* 태그 모달 */}
       {isTagModalOpen && (
-        <TagModal profileTags={profileTags} toggleTagModal={toggleTagModal} />
+        <TagModal profileTags={profile.tags} toggleTagModal={toggleTagModal} />
       )}
 
       {/* 팔로잉 프로필 모달 */}
