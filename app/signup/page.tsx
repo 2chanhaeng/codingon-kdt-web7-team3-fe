@@ -28,9 +28,11 @@ export default function Signup() {
         replace("/login");
       } else {
         // 회원가입 실패
+        event.currentTarget.querySelector("dialog")?.show();
       }
     } catch (error) {
       // 회원가입 실패
+      (event.target as HTMLFormElement).querySelector("dialog")?.show();
     }
   };
 
