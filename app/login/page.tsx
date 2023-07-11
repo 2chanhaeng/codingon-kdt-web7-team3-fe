@@ -10,12 +10,16 @@ interface LoginForm {
 export default function LoginPage() {
   const { replace } = useRouter();
   const [form, setForm] = useState({} as LoginForm);
+  const handleFormSubmit = useCallback(
+    (e: React.FormEvent<HTMLFormElement>) => onFormSubmit(form, replace)(e),
+    [form, replace]
+  );
   const handleChange = onChange(setForm);
 
   return (
     <main>
       <h1>로그인</h1>
-      <form onSubmit={handleRegister}>
+      <form onSubmit={handleFormSubmit}>
         <label>
           아이디
           <input type="text" name="username" onChange={handleChange} />
@@ -26,9 +30,7 @@ export default function LoginPage() {
           <input type="password" name="password" onChange={handleChange} />
         </label>
         <br />
-        <button type="button" onClick={handleLogin}>
-          로그인
-        </button>
+        <button type="submit">로그인</button>
         <dialog onClick={(e) => e.currentTarget.close()} id="failed">
           <p>로그인 실패</p>
         </dialog>
