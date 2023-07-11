@@ -3,7 +3,7 @@ import { PostType } from "@/types/profile";
 export default function ProfilePost({
   profilePosts,
 }: {
-  profilePosts: ProfileType[];
+  profilePosts: PostType[];
 }) {
   return (
     <section>
