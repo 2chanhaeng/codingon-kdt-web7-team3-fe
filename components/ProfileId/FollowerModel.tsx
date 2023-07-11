@@ -18,8 +18,8 @@ export default function FollowerModal({
             <li key={id}>{name}</li>
           ))}
         </ul>
-        <button onClick={closeFollowergModal}>닫기</button>
-      </div>
-    </div>
+        <button onClick={() => setIsFollowerModalOpen(false)}>닫기</button>
+      </section>
+    </article>
   );
 }
