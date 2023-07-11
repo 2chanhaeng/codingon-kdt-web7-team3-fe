@@ -14,8 +14,8 @@ export default function FollowerModal({
       <section className={styles.modalContent}>
         <h2>Follower</h2>
         <ul>
-          {followerProfiles.map((profile) => (
-            <li key={profile.id}>{profile.name}</li>
+          {profile.follows.map(({ id, name }) => (
+            <li key={id}>{name}</li>
           ))}
         </ul>
         <button onClick={closeFollowergModal}>닫기</button>
