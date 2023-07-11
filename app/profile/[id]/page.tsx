@@ -112,7 +112,7 @@ export default function ProfileId({
       </article>
 
       {/* 태그 모달 */}
-      {isTagModalOpen && (
+      {isTagModalOpen && ( //isTagModalOpen tailwind로 바꾸기
         <TagModal profileTags={profile.tags} toggleTagModal={toggleTagModal} />
       )}
 
