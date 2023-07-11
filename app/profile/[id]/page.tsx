@@ -16,8 +16,12 @@ const exampleProfiles = [
     name: "김한솔",
     information: "풋볼을 좋아함",
   },
-  { id: "2", name: "김안나", information: "운동을 좋아함" },
-];
+  {
+    id: "2",
+    name: "김안나",
+    information: "운동을 좋아함",
+  },
+] as ProfilePageData[];
 
 export default function ProfileId({
   params: { id },
