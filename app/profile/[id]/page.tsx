@@ -8,7 +8,7 @@ import FollowingModal from "@/components/ProfileId/FollowingModal";
 import TagModal from "@/components/ProfileId/TagModal";
 import ProfilePost from "@/components/ProfileId/ProfilePost";
 import ProfileInfo from "@/components/ProfileId/ProfileInfo";
-import AllProfileList from "@/components/ProfileId/AllProfileList";
+import getProfilePageData from "./request";
 
 const exampleProfiles = [
   {
