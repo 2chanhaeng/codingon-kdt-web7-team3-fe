@@ -14,7 +14,7 @@ export default function TagModal({
         <h2>태그</h2>
         <ul>
           {profileTags.map((tag) => (
-            <li key={tag.id}>{tag.name}</li>
+            <li key={tag.id}>{tag.tagname}</li>
           ))}
         </ul>
         <button onClick={toggleTagModal}>닫기</button>
