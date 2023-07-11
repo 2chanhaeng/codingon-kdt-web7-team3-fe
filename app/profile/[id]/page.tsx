@@ -98,7 +98,7 @@ export default function ProfileId({
       {/* 프로필 정보 */}
       <article>
         <section className={styles.article}>
-          <ProfileInfo id={id} profiles={profiles} />
+          <ProfileInfo profile={profile} />
           <button onClick={openTagModal}>태그</button>
           <button onClick={() => setIsFollowingModalOpen(true)}>팔로잉</button>
           <button onClick={() => setIsFollowerModalOpen(true)}>팔로워</button>
