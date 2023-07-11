@@ -4,6 +4,12 @@ export interface ProfileType {
   information: string;
 }
 
+export interface PostType {
+  id: string;
+  name: string;
+  information: string;
+}
+
 export interface CreateProfileType {
   name: string;
   information: string;
