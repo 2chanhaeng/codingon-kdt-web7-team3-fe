@@ -9,8 +9,8 @@ export default function FollowingModal({
   setIsFollowingModalOpen: Dispatch<SetStateAction<boolean>>;
 }) {
   return (
-    <div className={styles.modal}>
-      <div className={styles.modalContent}>
+    <article className={styles.modal}>
+      <section className={styles.modalContent}>
         <h2>Following</h2>
         <ul>
           {followingProfiles.map((profile) => (
