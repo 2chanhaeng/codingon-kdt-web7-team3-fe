@@ -19,6 +19,10 @@ export default function LoginPage() {
         username: userId,
         password: userPw,
       });
+interface LoginForm {
+  username: string;
+  password: string;
+}
 
       if (response.data.success === true) {
         setResult("로그인에 성공하였습니다.");
