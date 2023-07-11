@@ -6,8 +6,8 @@ export default function FollowerModal({
   profile,
   setIsFollowerModalOpen,
 }: {
-  followerProfiles: ProfileType[];
-  closeFollowergModal: () => void;
+  profile: ProfilePageData;
+  setIsFollowerModalOpen: Dispatch<SetStateAction<boolean>>;
 }) {
   return (
     <div className={styles.modal}>
