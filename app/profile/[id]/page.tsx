@@ -95,6 +95,13 @@ export default function ProfileId({
       </article>
 
       {/* 태그 모달 */}
+      <dialog
+        className={styles.dialog}
+        open={isTagModalOpen}
+        onClose={() => setIsTagModalOpen(false)}
+      >
+        <TagModal profile={profile} setIsTagModalOpen={setIsTagModalOpen} />
+      </dialog>
 
       {/* 팔로잉 프로필 모달 */}
         <FollowingModal
