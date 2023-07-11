@@ -1,4 +1,4 @@
-import { ProfileType } from "@/types/profile";
+import { PostType } from "@/types/profile";
 
 export default function ProfilePost({
   profilePosts,
