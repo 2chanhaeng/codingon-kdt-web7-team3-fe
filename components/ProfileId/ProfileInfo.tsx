@@ -3,8 +3,7 @@ import styles from "app/profile/styles.module.scss";
 export default function ProfileInfo({
   profile: { name, information },
 }: {
-  id: string;
-  profiles: ProfileType[];
+  profile: ProfileType;
 }) {
   return (
     <div className={styles.div}>
