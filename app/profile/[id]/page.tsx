@@ -1,7 +1,7 @@
 "use client";
 import axios from "axios";
 import { useState, useEffect } from "react";
-import { PostType, ProfileType, Tag } from "@/types/profile";
+import { ProfileType, ProfilePageData } from "@/types/profile";
 import styles from "../styles.module.scss";
 import FollowerModal from "@/components/ProfileId/FollowerModel";
 import FollowingModal from "@/components/ProfileId/FollowingModal";
