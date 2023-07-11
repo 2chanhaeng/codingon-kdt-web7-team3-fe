@@ -51,12 +51,10 @@ export default function Signup() {
         </label>
         <br />
         <button type="submit">회원가입</button>
+        <dialog onClick={(e) => e.currentTarget.close()} id="failed">
+          <p>회원가입 실패</p>
+        </dialog>
       </form>
-      <br />
-      <div
-        className="result"
-      >
-      </div>
     </div>
   );
 }
