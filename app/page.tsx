@@ -19,6 +19,12 @@ export default function Home() {
     <main>
       <Header />
 
+      <Container
+        sx={{ p: 0, background: "#EEEEEE" }}
+        className={style.Container}
+      >
+        <MainFeaturedPost post={mainFeaturedPost} />
+      </Container>
     </main>
   );
 }
