@@ -1,23 +1,24 @@
-import { ProfileType } from "@/types/profile";
+import { Dispatch, SetStateAction } from "react";
+import { ProfilePageData } from "@/types/profile";
 import styles from "app/profile/styles.module.scss";
 export default function FollowingModal({
-  followingProfiles,
-  closeFollowingModal,
+  profile,
+  setIsFollowingModalOpen,
 }: {
-  followingProfiles: ProfileType[];
-  closeFollowingModal: () => void;
+  profile: ProfilePageData;
+  setIsFollowingModalOpen: Dispatch<SetStateAction<boolean>>;
 }) {
   return (
-    <div className={styles.modal}>
-      <div className={styles.modalContent}>
+    <article className={styles.modal}>
+      <section className={styles.modalContent}>
         <h2>Following</h2>
         <ul>
-          {followingProfiles.map((profile) => (
-            <li key={profile.id}>{profile.name}</li>
+          {profile.follows.map(({ id, name }) => (
+            <li key={id}>{name}</li>
           ))}
         </ul>
-        <button onClick={closeFollowingModal}>닫기</button>
-      </div>
-    </div>
+        <button onClick={() => setIsFollowingModalOpen(false)}>닫기</button>
+      </section>
+    </article>
   );
 }

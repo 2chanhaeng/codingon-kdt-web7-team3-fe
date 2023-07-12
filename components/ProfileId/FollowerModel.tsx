@@ -1,24 +1,25 @@
-import { ProfileType } from "@/types/profile";
+import { Dispatch, SetStateAction } from "react";
+import { ProfilePageData } from "@/types/profile";
 import styles from "app/profile/styles.module.scss";
 
 export default function FollowerModal({
-  followerProfiles,
-  closeFollowergModal,
+  profile,
+  setIsFollowerModalOpen,
 }: {
-  followerProfiles: ProfileType[];
-  closeFollowergModal: () => void;
+  profile: ProfilePageData;
+  setIsFollowerModalOpen: Dispatch<SetStateAction<boolean>>;
 }) {
   return (
-    <div className={styles.modal}>
-      <div className={styles.modalContent}>
+    <article className={styles.modal}>
+      <section className={styles.modalContent}>
         <h2>Follower</h2>
         <ul>
-          {followerProfiles.map((profile) => (
-            <li key={profile.id}>{profile.name}</li>
+          {profile.follows.map(({ id, name }) => (
+            <li key={id}>{name}</li>
           ))}
         </ul>
-        <button onClick={closeFollowergModal}>닫기</button>
-      </div>
-    </div>
+        <button onClick={() => setIsFollowerModalOpen(false)}>닫기</button>
+      </section>
+    </article>
   );
 }
