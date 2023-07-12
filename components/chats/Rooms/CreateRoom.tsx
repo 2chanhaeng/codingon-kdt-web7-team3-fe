@@ -1,15 +1,13 @@
-import React, { useContext } from "react";
-import { SocketContext } from "@/contexts/socket";
-import handleCreate from "@/handlers/chats/socket/emit/create";
+import { useState } from "react";
+import { ListItem, ListItemButton } from "@mui/joy";
 
 export default function CreateRoom() {
-  const socket = useContext(SocketContext);
+  const [creating, setCreating] = useState(false);
   return (
-    <li>
-      <form onSubmit={handleCreate(socket)}>
-        <input type="text" name="roomname" />
-        <button type="submit">create room</button>
-      </form>
-    </li>
+    <ListItem>
+      <ListItemButton onClick={() => setCreating(true)}>
+        Create Room
+      </ListItemButton>
+    </ListItem>
   );
 }

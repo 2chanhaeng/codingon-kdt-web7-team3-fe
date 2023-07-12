@@ -55,7 +55,7 @@ export default function SignIn() {
     if (res.ok) {
       const { access } = await res.json();
       localStorage.setItem("access", access); // TODO: 쿠키로 바꾸기
-      replace("/");
+      replace("/profile/select");
     } else {
       console.log(res);
       setFailed(true);

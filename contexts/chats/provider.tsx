@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Room } from "@/types/chats";
 import listenSocket from "@/handlers/chats/socket/listen";
 import { socket, SocketContext } from "../socket";
