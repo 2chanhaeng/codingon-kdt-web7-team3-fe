@@ -1,11 +1,13 @@
 export interface ProfileType {
   id: string;
   name: string;
+  profname: string;
   information: string;
 }
 
 export interface PostType {
   id: string;
+  profile: ProfileType;
   content: string;
 }
 
@@ -21,6 +23,7 @@ export interface ProfilesData {
 export interface Tag {
   id: string;
   tagname: string;
+  information: string;
 }
 
 export interface ProfilePageData extends ProfileType {
