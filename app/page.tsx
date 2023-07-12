@@ -25,6 +25,20 @@ export default function Home() {
       >
         <MainFeaturedPost post={mainFeaturedPost} />
       </Container>
+
+      <Grid className={style.buttongrid}>
+        <Link href={"/login"}>
+          <Button className={style.loginbutton} variant="contained">
+            로그인
+          </Button>
+        </Link>
+
+        <Link href={"/signup"}>
+          <Button className={style.signupbutton} variant="contained">
+            회원가입
+          </Button>
+        </Link>
+      </Grid>
     </main>
   );
 }
