@@ -9,7 +9,13 @@ import TagModal from "@/components/ProfileId/TagModal";
 import ProfilePost from "@/components/ProfileId/ProfilePost";
 import ProfileInfo from "@/components/ProfileId/ProfileInfo";
 import getProfilePageData from "./request";
+import AllProfileList from "@/components/ProfileId/AllProfileList";
+import { profile } from "console";
 
+//로그인 유저의 모든 프로필 불러오기
+{
+  /* <AllProfileList profiles={profiles} /> */
+}
 const exampleProfiles = [
   {
     id: "1",
@@ -48,6 +54,8 @@ export default function ProfileId({
   const [isFollowingModalOpen, setIsFollowingModalOpen] = useState(false);
   //유저를 팔로우 하고있는 프로필을 보여주는 모달
   const [isFollowerModalOpen, setIsFollowerModalOpen] = useState(false);
+  //유저를 팔로우 하고있는 프로필을 보여주는 모달
+  const [editModalOpen, setEditModalOpen] = useState(false);
 
   useEffect(() => {
     // page init
@@ -62,20 +70,6 @@ export default function ProfileId({
     });
   }, [id]);
 
-  const ProfileEdit = async (id: string) => {
-    try {
-      // await axios.post(`/api/profiles/${id}`, {
-      //   profile,
-      //   baseURL: "http://localhost:8000",
-      // });
-
-      const profileToFollower: ProfileType[] = exampleProfiles;
-      return profileToFollower;
-    } catch (error) {
-      console.error("Error:", error);
-    }
-  };
-
   return (
     <main>
       {/* 프로필 정보 */}
@@ -85,7 +79,6 @@ export default function ProfileId({
           <button onClick={() => setIsTagModalOpen(true)}>태그</button>
           <button onClick={() => setIsFollowingModalOpen(true)}>팔로잉</button>
           <button onClick={() => setIsFollowerModalOpen(true)}>팔로워</button>
-          <button>프로필 수정</button>
         </section>
       </article>
 

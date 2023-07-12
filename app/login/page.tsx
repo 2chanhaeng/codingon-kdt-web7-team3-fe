@@ -1,66 +1,137 @@
 "use client";
-import { useState } from "react";
-import axios from "axios";
 
-export default function LoginPage() {
-  const [userId, setUserId] = useState("");
-  const [userPw, setUserPw] = useState("");
-  const [success, setResult] = useState("");
+import * as React from "react";
+import { useRouter } from "next/navigation";
+import Avatar from "@mui/material/Avatar";
+import Button from "@mui/material/Button";
+import CssBaseline from "@mui/material/CssBaseline";
+import TextField from "@mui/material/TextField";
+import FormControlLabel from "@mui/material/FormControlLabel";
+import Checkbox from "@mui/material/Checkbox";
+import Link from "@mui/material/Link";
+import Grid from "@mui/material/Grid";
+import Box from "@mui/material/Box";
+import Dialog from "@mui/material/Dialog";
+import DialogTitle from "@mui/material/DialogTitle";
+import DialogContent from "@mui/material/DialogContent";
+import DialogContentText from "@mui/material/DialogContentText";
+import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
+import Typography from "@mui/material/Typography";
+import Container from "@mui/material/Container";
 
-  const handleLogin = async () => {
-    if (userId === "" || userPw === "") {
-      setResult("아이디와 비밀번호를 입력하세요");
-      localStorage.setItem("login", "true");
-      return;
-    }
+function Copyright(props: any) {
+  return (
+    <Typography
+      variant="body2"
+      color="text.secondary"
+      align="center"
+      {...props}
+    >
+      {"Copyright © "}
+      <Link color="inherit" href="https://mui.com/">
+        Your Website
+      </Link>{" "}
+      {new Date().getFullYear()}
+      {"."}
+    </Typography>
+  );
+}
 
-    try {
-      const response = await axios.post("http://localhost:8000/api/login", {
-        username: userId,
-        password: userPw,
-      });
-
-      if (response.data.success === true) {
-        setResult("로그인에 성공하였습니다.");
-      } else {
-        setResult("로그인에 실패하였습니다.");
-      }
-    } catch (error) {
-      setResult("로그인 요청을 처리하는 동안 오류가 발생하였습니다.");
+export default function SignIn() {
+  const { replace } = useRouter();
+  const [failed, setFailed] = React.useState(false);
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    const form = new FormData(event.currentTarget);
+    const data = {
+      username: form.get("username"),
+      password: form.get("password"),
+    };
+    const res = await fetch("/api/login", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(data),
+    });
+    if (res.ok) {
+      const { access } = await res.json();
+      localStorage.setItem("access", access); // TODO: 쿠키로 바꾸기
+      replace("/");
+    } else {
+      console.log(res);
+      setFailed(true);
     }
   };
+  const handleClose = () => setFailed(false);
 
   return (
-    <main>
-      <h4>로그인</h4>
-      <form>
-        <label htmlFor="id">아이디</label>
-        <input
-          type="text"
-          id="id"
-          value={userId}
-          onChange={(e) => setUserId(e.target.value)}
-        />
-        <br />
-        <label htmlFor="pw">비밀번호</label>
-        <input
-          type="password"
-          id="pw"
-          value={userPw}
-          onChange={(e) => setUserPw(e.target.value)}
-        />
-        <br />
-        <button type="button" onClick={handleLogin}>
-          로그인
-        </button>
-      </form>
-      <br />
-      <article
-        className="result"
-        style={{ color: success.startsWith("로그인에 성공") ? "blue" : "red" }}
+    <Container component="main" maxWidth="xs">
+      <CssBaseline />
+      <Box
+        sx={{
+          marginTop: 8,
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+        }}
       >
-        {success}
-      </article>
-    </main>
+        <Avatar sx={{ m: 1, bgcolor: "secondary.main" }}>
+          <LockOutlinedIcon />
+        </Avatar>
+        <Typography component="h1" variant="h5">
+          Sign in
+        </Typography>
+        <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
+          <TextField
+            margin="normal"
+            required
+            fullWidth
+            id="username"
+            label="Username"
+            name="username"
+            autoComplete="username"
+            autoFocus
+          />
+          <TextField
+            margin="normal"
+            required
+            fullWidth
+            name="password"
+            label="Password"
+            type="password"
+            id="password"
+            autoComplete="current-password"
+          />
+          <FormControlLabel
+            control={<Checkbox value="remember" color="primary" />}
+            label="Remember me"
+          />
+          <Button
+            type="submit"
+            fullWidth
+            variant="contained"
+            sx={{ mt: 3, mb: 2 }}
+          >
+            Sign In
+          </Button>
+          <Grid container>
+            <Grid item xs></Grid>
+            <Grid item>
+              <Link href="/signup" variant="body2">
+                {"Don't have an account? Sign Up"}
+              </Link>
+            </Grid>
+          </Grid>
+          <Dialog open={failed} onClose={handleClose}>
+            <DialogTitle>Login failed</DialogTitle>
+            <DialogContent>
+              <DialogContentText>
+                The Username or Password is incorrect.
+              </DialogContentText>
+            </DialogContent>
+          </Dialog>
+        </Box>
+      </Box>
+      <Copyright sx={{ mt: 8, mb: 4 }} />
+    </Container>
   );
 }
