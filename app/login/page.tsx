@@ -1,56 +1,56 @@
 "use client";
+
+import * as React from "react";
 import { useRouter } from "next/navigation";
-import React, { useCallback, useState } from "react";
+import Avatar from "@mui/material/Avatar";
+import Button from "@mui/material/Button";
+import CssBaseline from "@mui/material/CssBaseline";
+import TextField from "@mui/material/TextField";
+import FormControlLabel from "@mui/material/FormControlLabel";
+import Checkbox from "@mui/material/Checkbox";
+import Link from "@mui/material/Link";
+import Grid from "@mui/material/Grid";
+import Box from "@mui/material/Box";
+import Dialog from "@mui/material/Dialog";
+import DialogTitle from "@mui/material/DialogTitle";
+import DialogContent from "@mui/material/DialogContent";
+import DialogContentText from "@mui/material/DialogContentText";
+import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
+import Typography from "@mui/material/Typography";
+import Container from "@mui/material/Container";
 
-interface LoginForm {
-  username: string;
-  password: string;
-}
-
-export default function LoginPage() {
-  const { replace } = useRouter();
-  const [form, setForm] = useState({} as LoginForm);
-  const handleFormSubmit = useCallback(
-    (e: React.FormEvent<HTMLFormElement>) => onFormSubmit(form, replace)(e),
-    [form, replace]
-  );
-  const handleChange = onChange(setForm);
-
+function Copyright(props: any) {
   return (
-    <main>
-      <h1>로그인</h1>
-      <form onSubmit={handleFormSubmit}>
-        <label>
-          아이디
-          <input type="text" name="username" onChange={handleChange} />
-        </label>
-        <br />
-        <label>
-          비밀번호
-          <input type="password" name="password" onChange={handleChange} />
-        </label>
-        <br />
-        <button type="submit">로그인</button>
-        <dialog onClick={(e) => e.currentTarget.close()} id="failed">
-          <p>로그인 실패</p>
-        </dialog>
-      </form>
-    </main>
+    <Typography
+      variant="body2"
+      color="text.secondary"
+      align="center"
+      {...props}
+    >
+      {"Copyright © "}
+      <Link color="inherit" href="https://mui.com/">
+        Your Website
+      </Link>{" "}
+      {new Date().getFullYear()}
+      {"."}
+    </Typography>
   );
 }
 
-/** 로그인 폼을 제출하는 함수 */
-function onFormSubmit(
-  form: LoginForm,
-  replace: (path: string) => void
-): React.FormEventHandler<HTMLFormElement> {
-  return async (e) => {
-    e.preventDefault();
-    console.log(form);
+export default function SignIn() {
+  const { replace } = useRouter();
+  const [failed, setFailed] = React.useState(false);
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    const form = new FormData(event.currentTarget);
+    const data = {
+      username: form.get("username"),
+      password: form.get("password"),
+    };
     const res = await fetch("/api/login", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(form),
+      body: JSON.stringify(data),
     });
     if (res.ok) {
       const { access } = await res.json();
@@ -58,17 +58,80 @@ function onFormSubmit(
       replace("/");
     } else {
       console.log(res);
-      (e.currentTarget ?? e.target)
-        .querySelector<HTMLDialogElement>("#failed")
-        ?.showModal();
+      setFailed(true);
     }
   };
-}
+  const handleClose = () => setFailed(false);
 
-/** 로그인 폼 키값을 name으로 받아서 value를 넣어줌 */
-function onChange(setForm: React.Dispatch<React.SetStateAction<LoginForm>>) {
-  return (e: React.ChangeEvent<HTMLInputElement>) => {
-    const { name, value } = e.target;
-    setForm((form) => ({ ...form, [name]: value }));
-  };
+  return (
+    <Container component="main" maxWidth="xs">
+      <CssBaseline />
+      <Box
+        sx={{
+          marginTop: 8,
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+        }}
+      >
+        <Avatar sx={{ m: 1, bgcolor: "secondary.main" }}>
+          <LockOutlinedIcon />
+        </Avatar>
+        <Typography component="h1" variant="h5">
+          Sign in
+        </Typography>
+        <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
+          <TextField
+            margin="normal"
+            required
+            fullWidth
+            id="username"
+            label="Username"
+            name="username"
+            autoComplete="username"
+            autoFocus
+          />
+          <TextField
+            margin="normal"
+            required
+            fullWidth
+            name="password"
+            label="Password"
+            type="password"
+            id="password"
+            autoComplete="current-password"
+          />
+          <FormControlLabel
+            control={<Checkbox value="remember" color="primary" />}
+            label="Remember me"
+          />
+          <Button
+            type="submit"
+            fullWidth
+            variant="contained"
+            sx={{ mt: 3, mb: 2 }}
+          >
+            Sign In
+          </Button>
+          <Grid container>
+            <Grid item xs></Grid>
+            <Grid item>
+              <Link href="/signup" variant="body2">
+                {"Don't have an account? Sign Up"}
+              </Link>
+            </Grid>
+          </Grid>
+          <Dialog open={failed} onClose={handleClose}>
+            <DialogTitle>Login failed</DialogTitle>
+            <DialogContent>
+              <DialogContentText>
+                The Username or Password is incorrect.
+              </DialogContentText>
+            </DialogContent>
+          </Dialog>
+        </Box>
+      </Box>
+      <Copyright sx={{ mt: 8, mb: 4 }} />
+    </Container>
+  );
 }
