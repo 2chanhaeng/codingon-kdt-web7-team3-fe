@@ -6,8 +6,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint",
-    "config": "ts-node -r tsconfig-paths/register -r dotenv/config --files setting/index.ts"
+    "lint": "next lint"
   },
   "dependencies": {
     "@emotion/react": "^11.11.1",
@@ -24,6 +23,7 @@
     "autoprefixer": "^10.4.14",
     "axios": "^1.4.0",
     "bufferutil": "^4.0.7",
+    "dotenv": "^16.3.1",
     "eslint": "8.43.0",
     "eslint-config-next": "13.4.7",
     "next": "13.4.7",
