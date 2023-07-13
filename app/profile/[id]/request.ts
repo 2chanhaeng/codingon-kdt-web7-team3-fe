@@ -3,12 +3,12 @@ import { PostType, ProfileType, Tag, ProfilePageData } from "@/types/profile";
 const exampleProfiles = [
   {
     id: "1",
-    name: "김한솔",
+    profname: "김한솔",
     information: "풋볼을 좋아함",
   },
   {
     id: "2",
-    name: "김안나",
+    profname: "김안나",
     information: "운동을 좋아함",
   },
 ] as ProfilePageData[];
@@ -24,7 +24,13 @@ export default async function getProfilePageData(id: string) {
 
 async function getProfilePosts(id: string) {
   try {
-    const profilePosts: PostType[] = [{ id: "asd", content: "asfqef" }];
+    const profilePosts: PostType[] = [
+      {
+        id: "asd",
+        content: "asfqef",
+        profile: { id: "asd", profname: "asd", information: "asd" },
+      },
+    ];
     return profilePosts;
   } catch (error) {
     console.error("Error:", error);

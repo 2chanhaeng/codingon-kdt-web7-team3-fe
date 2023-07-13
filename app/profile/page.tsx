@@ -38,7 +38,7 @@ export default function ProfilesPage() {
   const createProfile = async () => {
     try {
       const profile = {
-        name,
+        profname: name,
         information,
       };
 
@@ -59,7 +59,7 @@ export default function ProfilesPage() {
   //선택된 프로필을 인자로 받아 set*으로 상태를 업데이트 후 모달을 연다.
   const handleProfileEdit = (profile: ProfileType) => {
     setSelectedProfile(profile);
-    setUserName(profile.name);
+    setUserName(profile.profname);
     setUserInfo(profile.information);
     openModal();
   };
@@ -69,7 +69,7 @@ export default function ProfilesPage() {
     if (selectedProfile) {
       const updatedProfile: ProfileType = {
         ...selectedProfile,
-        name,
+        profname: name,
         information,
       };
 

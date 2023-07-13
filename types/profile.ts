@@ -1,6 +1,5 @@
 export interface ProfileType {
   id: string;
-  name: string;
   profname: string;
   information: string;
 }
