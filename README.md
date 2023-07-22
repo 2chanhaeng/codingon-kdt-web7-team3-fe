@@ -1,34 +1,50 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# 여기 여기 붙어라 👍
 
-## Getting Started
+- [여기 여기 붙어라 👍](#여기-여기-붙어라-)
+  - [1. 프로젝트 소개](#1-프로젝트-소개)
+  - [2. 프로젝트 기술 스택](#2-프로젝트-기술-스택)
+  - [3. Pages](#3-pages)
+  - [4. 프로젝트 저장소](#4-프로젝트-저장소)
 
-First, run the development server:
+## 1. 프로젝트 소개
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
+아이돌 좋아하는 사람! 게임 좋아하는 사람! 만화 좋아하는 사람! 여기 여기 붙어라!
+여기 여기 붙어라 는 좋아하는 관심사를 선택하여 관심사가 같은 사람들끼리 서로 소
+통하면서 유대감을 쌓고 정보를 공유할 수 있도록 태그 기능을 부각시킨 SNS/커뮤니티
+사이트입니다.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 2. 프로젝트 기술 스택
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- Language
+  - [TypeScript](https://www.typescriptlang.org/)
+- DB
+  - [Prisma ORM](https://www.prisma.io/)
+  - [PlanetScale](https://planetscale.com/)
+- FE
+  - [React](https://reactjs.org/)
+  - [Next.js](https://nextjs.org/)
+  - [Material UI](https://material-ui.com/)
+- BE
+  - [nest.js](https://nestjs.com/)
+  - [Swagger](https://swagger.io/)
+  - [passport.js](http://www.passportjs.org/)
+  - [socket.io](https://socket.io/)
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+## 3. Pages
 
-## Learn More
+| Path              | Description                |
+| ----------------- | -------------------------- |
+| `/`               | 메인 페이지                |
+| `/login`          | 로그인 페이지              |
+| `/signup`         | 회원가입 페이지            |
+| `/profile/select` | 접속 프로필 선택 페이지    |
+| `/profile/[id]`   | 프로필 상세 페이지         |
+| `/feed`           | 피드 페이지                |
+| `/tags`           | 트렌드, 구독한 태그 페이지 |
+| `/tags/[id]`      | 태그 상세 페이지           |
+| `/chat`           | 채팅 페이지                |
 
-To learn more about Next.js, take a look at the following resources:
+## 4. 프로젝트 저장소
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+[FE](https://github.com/2chanhaeng/codingon-kdt-web7-team3-fe)
+[BE](https://github.com/2chanhaeng/codingon-kdt-web7-team3-be)
